@@ -1,5 +1,12 @@
 pipeline {
     agent any
+
+    options {
+        // valid options only
+        timestamps()
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        disableConcurrentBuilds()
+    }
     
     environment {
         // Azure credentials from Jenkins
@@ -36,7 +43,7 @@ pipeline {
     steps {
         echo 'Checking out code from Git...'
         // Clean workspace first
-        deleteDir()
+        cleanWs()
         // Clone the repository
         git branch: 'main',
             url: 'https://github.com/sunnysavita10/automated-research-report-generation.git'
@@ -309,8 +316,11 @@ pipeline {
             echo 'Pipeline failed!'
         }
         always {
+        script {
             echo 'Cleaning up workspace...'
-            cleanWs()
+            node {
+                cleanWs()
+            }
         }
     }
 }

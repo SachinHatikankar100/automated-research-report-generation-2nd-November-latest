@@ -165,7 +165,7 @@ az container create \
   --subscription "$SUBSCRIPTION_ID"
 
 # Wait for deployment
-echo "⏳ Waiting for Jenkins to deploy..."
+echo "Waiting for Jenkins to deploy..."
 sleep 10
 
 # Get Jenkins URL
@@ -180,9 +180,9 @@ echo "╔═══════════════════════�
 echo "║           Deployment Complete!                         ║"
 echo "╚════════════════════════════════════════════════════════╝"
 echo ""
-echo "🌐 Jenkins URL: http://$JENKINS_URL:8080"
+echo "Jenkins URL: http://$JENKINS_URL:8080"
 echo ""
-echo "⏳ Wait 2-3 minutes for Jenkins to fully start, then run:"
+echo "Wait 2-3 minutes for Jenkins to fully start, then run:"
 echo ""
 echo "az container exec \\"
 echo "  --resource-group $RESOURCE_GROUP \\"
