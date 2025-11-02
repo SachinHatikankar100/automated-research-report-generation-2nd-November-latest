@@ -8,9 +8,10 @@ set -e
 # Configuration
 RESOURCE_GROUP="research-report-jenkins-rg"
 LOCATION="eastus"
-STORAGE_ACCOUNT="reportjenkinsstore"
+RANDOM_SUFFIX=$(openssl rand -hex 3)
+STORAGE_ACCOUNT="reportjenkinsstore${RANDOM_SUFFIX}"
 FILE_SHARE="jenkins-data"
-ACR_NAME="reportjenkinsacr"
+ACR_NAME="reportjenkinsacr${RANDOM_SUFFIX}"
 CONTAINER_NAME="jenkins-research-report"
 DNS_NAME_LABEL="jenkins-research-$(date +%s | tail -c 6)"
 JENKINS_IMAGE_NAME="custom-jenkins"
