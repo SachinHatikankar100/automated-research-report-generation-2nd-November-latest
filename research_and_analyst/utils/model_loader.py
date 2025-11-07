@@ -101,7 +101,7 @@ class ModelLoader:
     # ----------------------------------------------------------------------
     def load_llm(self):
         """
-        Load and return a chat-based LLM according to the configured provider.
+        Load and give a chat-based LLM according to the configured provider.
 
         Supported providers:
             - OpenAI
