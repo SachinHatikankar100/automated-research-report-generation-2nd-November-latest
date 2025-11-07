@@ -46,7 +46,7 @@ pipeline {
                 cleanWs()
                 // Clone the repository
                 git branch: 'main',
-                    url: 'https://github.com/sunnysavita10/automated-research-report-generation.git'
+                    url: 'https://github.com/SachinHatikankar100/automated-research-report-generation-2nd-November-latest.git'
             }
         }
 
