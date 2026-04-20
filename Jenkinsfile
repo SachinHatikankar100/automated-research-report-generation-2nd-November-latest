@@ -23,9 +23,9 @@ pipeline {
         STORAGE_ACCOUNT_KEY = credentials('storage-account-key')
 
         // API Keys
-        OPENAI_API_KEY = credentials('OPENAI_API_KEY')
-        GOOGLE_API_KEY = credentials('GOOGLE_API_KEY')
-        GROQ_API_KEY = credentials('GROQ_API_KEY')
+        //OPENAI_API_KEY = credentials('OPENAI_API_KEY')
+        //GOOGLE_API_KEY = credentials('GOOGLE_API_KEY')
+        //GROQ_API_KEY = credentials('GROQ_API_KEY')
         TAVILY_API_KEY = credentials('TAVILY_API_KEY')
         LLM_PROVIDER = credentials('LLM_PROVIDER')
 
