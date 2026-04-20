@@ -40,15 +40,12 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                script {
-                    echo 'Checking out code from Git...'
-                    cleanWs()
-                    checkout([
-                        $class: 'GitSCM',
-                        branches: [[name: '*/main']],
-                        userRemoteConfigs: [[url: 'https://github.com/sunnysavita10/automated-research-report-generation.git']]
-                    ])
-                }
+                echo 'Checking out code from Git...'
+                // Clean workspace first
+                cleanWs()
+                // Clone the repository
+                git branch: 'main',
+                    url: 'https://github.com/SachinHatikankar100/automated-research-report-generation-2nd-November-latest.git'
             }
         }
 
