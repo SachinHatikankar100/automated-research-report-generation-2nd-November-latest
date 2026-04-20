@@ -113,7 +113,7 @@ class ModelLoader:
         """
         try:
             llm_block = self.config["llm"]
-            provider_key = os.getenv("LLM_PROVIDER", "openai")
+            provider_key = os.getenv("LLM_PROVIDER", "openrouter")
 
             if provider_key not in llm_block:
                 log.error("LLM provider not found in configuration", provider=provider_key)
@@ -148,6 +148,16 @@ class ModelLoader:
                     api_key=self.api_key_mgr.get("OPENAI_API_KEY"),
                     temperature=temperature,
                 )
+            elif provider == "openrouter":
+                #from langchain_openai import ChatOpenAI
+                llm = ChatOpenAI(
+                    model=model_name,
+                    temperature=temperature,
+                    max_tokens=max_tokens,
+                    base_url="https://openrouter.ai/api/v1",
+                    api_key=os.getenv("OPENROUTER_API_KEY")
+                )
+            
 
             else:
                 log.error("Unsupported LLM provider encountered", provider=provider)

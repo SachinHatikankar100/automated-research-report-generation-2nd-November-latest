@@ -1,5 +1,6 @@
 #!/bin/bash
-
+#export MSYS_NO_PATHCONV=1
+#export MSYS2_ARG_CONV_EXCL="*"
 # Azure Deployment Script for Jenkins
 # Deploys Jenkins with Python 3.11 and Azure CLI for Research Report Generation CI/CD
 
@@ -8,11 +9,11 @@ set -e
 # Configuration
 RESOURCE_GROUP="research-report-jenkins-rg"
 LOCATION="eastus"
-STORAGE_ACCOUNT="reportjenkinsstore"
+STORAGE_ACCOUNT="reportjenkinsstore626286"
 FILE_SHARE="jenkins-data"
-ACR_NAME="reportjenkinsacr"
+ACR_NAME="reportjenkinsacr626286"
 CONTAINER_NAME="jenkins-research-report"
-DNS_NAME_LABEL="jenkins-research-$(date +%s | tail -c 6)"
+DNS_NAME_LABEL="jenkins-research-626286"
 JENKINS_IMAGE_NAME="custom-jenkins"
 JENKINS_IMAGE_TAG="lts-git-configured"
 
@@ -66,6 +67,7 @@ az storage account create \
   --name $STORAGE_ACCOUNT \
   --location $LOCATION \
   --sku Standard_LRS \
+  --min-tls-version TLS1_2 \
   --subscription "$SUBSCRIPTION_ID"
 
 # Get Storage Account Key
