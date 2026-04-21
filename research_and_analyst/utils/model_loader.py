@@ -8,7 +8,7 @@ from langchain_google_genai import GoogleGenerativeAIEmbeddings, ChatGoogleGener
 from langchain_openai import ChatOpenAI
 from langchain_groq import ChatGroq
 from research_and_analyst.logger import GLOBAL_LOGGER as log
-from exception.custom_exception import ResearchAnalystException
+from research_and_analyst.exception.custom_exception import ResearchAnalystException
 
 
 class ApiKeyManager:
