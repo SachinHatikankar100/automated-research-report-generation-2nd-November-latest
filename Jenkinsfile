@@ -26,13 +26,14 @@ pipeline {
         //OPENAI_API_KEY = credentials('OPENAI_API_KEY')
         //GOOGLE_API_KEY = credentials('GOOGLE_API_KEY')
         //GROQ_API_KEY = credentials('GROQ_API_KEY')
+        OPENROUTER_API_KEY = credentials('OPENROUTER_API_KEY')
         TAVILY_API_KEY = credentials('TAVILY_API_KEY')
         LLM_PROVIDER = credentials('LLM_PROVIDER')
 
         // App config
         APP_RESOURCE_GROUP = 'research-report-app-rg'
         APP_NAME = 'research-report-app'
-        ACR_NAME = 'researchreportacr'
+        ACR_NAME = 'researchreportacr626286'
         IMAGE_NAME = 'research-report-app'
         CONTAINER_ENV = 'research-report-env'
     }
@@ -159,18 +160,14 @@ pipeline {
                           --name $APP_NAME \
                           --resource-group $APP_RESOURCE_GROUP \
                           --secrets \
-                            openai-api-key=$OPENAI_API_KEY \
-                            google-api-key=$GOOGLE_API_KEY \
-                            groq-api-key=$GROQ_API_KEY \
+                            openrouter-api-key=$OPENROUTER_API_KEY \
                             tavily-api-key=$TAVILY_API_KEY
 
                         az containerapp update \
                           --name $APP_NAME \
                           --resource-group $APP_RESOURCE_GROUP \
                           --set-env-vars \
-                            OPENAI_API_KEY=secretref:openai-api-key \
-                            GOOGLE_API_KEY=secretref:google-api-key \
-                            GROQ_API_KEY=secretref:groq-api-key \
+                            OPENROUTER_API_KEY=secretref:openrouter-api-key \
                             TAVILY_API_KEY=secretref:tavily-api-key \
                             LLM_PROVIDER=$LLM_PROVIDER
                     '''
